@@ -2,7 +2,7 @@
 
 A Claude skill that walks you, step by step, through building your own n8n automation: check a list of companies' job boards (Greenhouse, Lever, or Ashby) and log any matching openings into a Google Sheet. No coding experience required — just an n8n Cloud account (free trial) and a Google account.
 
-Built by [Nate Smith] as a companion to [this post/video] — full walkthrough there if you want to see it in action first.
+Built by [Nate Smith](https://www.linkedin.com/in/natedansmith/) — video walkthrough coming soon.
 
 ## What you need before you start
 
