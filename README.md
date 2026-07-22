@@ -1,6 +1,6 @@
 # n8n Job Board Tracker — Claude Skill
 
-A Claude skill that walks you, step by step, through building your own n8n automation: check a list of companies' job boards (Greenhouse, Lever, or Ashby) and log any matching openings into a Google Sheet. No coding experience required — just an n8n Cloud account (free trial) and a Google account.
+A Claude skill that walks you, step by step, through building your own n8n automation: check a list of companies' job boards (Greenhouse, Lever, Ashby, or Workable) and log any matching openings into a Google Sheet. No coding experience required — just an n8n Cloud account (free trial) and a Google account.
 
 Built by [Nate Smith](https://www.linkedin.com/in/natedansmith/) — video walkthrough coming soon.
 
