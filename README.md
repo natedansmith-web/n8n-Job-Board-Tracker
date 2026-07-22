@@ -12,7 +12,7 @@ Built by [Nate Smith](https://www.linkedin.com/in/natedansmith/) — video walkt
 
 ## Install the skill
 
-Download `n8n-job-board-tracker.skill` from this repo's [Releases](../../releases) page, then install it on whichever Claude surface you use:
+Download `n8n-job-board-tracker.skill` from this repo's [Releases](../../releases) page, then install it on whichever Claude surface you use. That's the only file you need — it already has `SKILL.md`, `scripts/`, and `references/` bundled inside it, so there's nothing separate to download, run, or configure from the rest of this repo. Those folders are shown below only so you (or anyone curious) can read the source; Claude reads and runs them on its own once the skill is installed.
 
 **Claude.ai (Pro, Max, or Free plan)**
 1. Go to **Settings → Capabilities** and turn on **Code Execution** and **File Creation**.
@@ -39,6 +39,8 @@ Claude will walk you through it one step at a time: confirming each company's jo
 
 ## What's in this repo
 
+Purely for reference — you don't need to download or run any of this yourself; it's already packaged inside the `.skill` file above.
+
 - `SKILL.md` — the instructions Claude follows
-- `scripts/` — helper scripts that generate the job-board URLs and the n8n code
-- `references/` — the exact code for the trickier n8n node (handling three different job-board data formats)
+- `scripts/` — helper scripts Claude runs itself to generate the job-board URLs and the n8n code
+- `references/` — the exact code for the trickier n8n node (handling four different job-board data formats)
