@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Generate candidate ATS (Greenhouse/Lever/Ashby) feed URLs for a list of company names.
+Generate candidate ATS (Greenhouse/Lever/Ashby/Workable) feed URLs for a list of company names.
 
 Usage:
     python generate_candidates.py "Stripe" "Figma" "Datadog" "Cockroach Labs"
     python generate_candidates.py --file companies.txt   # one company name per line
 
 Output: JSON list of {company, ats, slug, url} candidates, two slug variants
-(bare and hyphenated) times three platforms, per company. Feed this list of
+(bare and hyphenated) times four platforms, per company. Feed this list of
 URLs to a fetch step (or to the human, for manual browser checking) to find
 out which candidates are actually live.
 """
@@ -33,6 +33,7 @@ ATS_BUILDERS = {
     "greenhouse": lambda slug: f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs",
     "lever": lambda slug: f"https://api.lever.co/v0/postings/{slug}?mode=json",
     "ashby": lambda slug: f"https://api.ashbyhq.com/posting-api/job-board/{slug}",
+    "workable": lambda slug: f"https://apply.workable.com/api/v1/widget/accounts/{slug}",
 }
 
 

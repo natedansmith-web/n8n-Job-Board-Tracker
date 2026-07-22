@@ -1,6 +1,6 @@
 # Normalize node — exact code
 
-Greenhouse and Ashby both wrap jobs in a `{"jobs": [...]}` array but use different field names inside each job object. Lever returns a plain array where each item IS one job. This code handles all three shapes and outputs one consistent record per job: `company`, `job_id`, `title`, `location`, `url`, `posted`.
+Greenhouse, Ashby, and Workable all wrap jobs in a `{"jobs": [...]}` array but use different field names inside each job object. Lever returns a plain array where each item IS one job. This code handles all four shapes and outputs one consistent record per job: `company`, `job_id`, `title`, `location`, `url`, `posted`.
 
 Paste this into a Code node renamed exactly `Normalize`, placed right after the HTTP Request node:
 
@@ -13,7 +13,7 @@ for (let i = 0; i < items.length; i++) {
   if (d.error) continue;
 
   if (Array.isArray(d.jobs)) {
-    // Greenhouse and Ashby both wrap jobs in an array, but the job objects differ
+    // Greenhouse, Ashby, and Workable all wrap jobs in an array, but the job objects differ
     for (const job of d.jobs) {
       if (reg.ats === 'greenhouse') {
         out.push({ json: {
@@ -23,6 +23,16 @@ for (let i = 0; i < items.length; i++) {
           location: (job.location && job.location.name) || '',
           url: job.absolute_url,
           posted: job.first_published
+        }});
+      } else if (reg.ats === 'workable') {
+        const loc = [job.city, job.state, job.country].filter(Boolean).join(', ') + (job.telecommuting ? '; Remote' : '');
+        out.push({ json: {
+          company: reg.company,
+          job_id: reg.company + '-' + job.shortcode,
+          title: job.title,
+          location: loc,
+          url: job.url,
+          posted: job.published_on
         }});
       } else { // ashby
         const secondaries = (job.secondaryLocations || []).map(l => (l && l.location) || l).filter(Boolean);
