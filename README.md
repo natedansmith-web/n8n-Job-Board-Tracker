@@ -37,6 +37,8 @@ Start a conversation and say something like:
 
 Claude will walk you through it one step at a time: confirming each company's job board, generating the exact code to paste into n8n, and getting everything flowing into a Google Sheet — including how to dedupe repeat postings and (optionally) run it automatically on a schedule.
 
+The walkthrough also bakes in hard-won data-quality lessons from running this system daily on a real job search: cache-busting so feeds can't silently serve stale postings, filter design that won't quietly drop real jobs over inconsistent location strings, and troubleshooting for the cases where a job is visible on a company's careers page but missing from its data feed.
+
 ## What's in this repo
 
 Purely for reference — you don't need to download or run any of this yourself; it's already packaged inside the `.skill` file above.
